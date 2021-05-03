@@ -227,24 +227,10 @@ esDeAutorJapones unLibro = elem (autor unLibro) autoresJaponeses
 autoresJaponeses :: [String]
 autoresJaponeses = ["Hajime Isayama"]
 
---type Persona = (String, String, Int)
-
---gus :: Persona
---gus = ("Gustavo", "Trucco", 29)
---
---edad :: Persona -> Int
---edad (_, _, edad) = edad
---
---esMayorDeEdad :: Persona -> Bool
---esMayorDeEdad unaPersona = edad unaPersona >= 18
-
 cambiarElNombre :: String -> Libro -> Libro
 cambiarElNombre unNombreNuevo algunLibro = UnLibro unNombreNuevo (autor algunLibro) (cantidadDePaginas algunLibro)
 
 cambiarElNombre' :: String -> Libro -> Libro
 cambiarElNombre' unNombreNuevo algunLibro = algunLibro { titulo = unNombreNuevo, cantidadDePaginas = cantidadDePaginas algunLibro + 10 }
-
-
---type Persona = (String, String, Int, [Persona])
 
 data Persona = UnaPersona String String Int [Persona] deriving Show
