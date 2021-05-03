@@ -2,6 +2,7 @@
 Git:
 
 git clone https://github.com/pdep-lunes/pdep-clases-2021 -> Me bajo el album de fotos
+git status                                               -> "Che, como anda la escena?"
 git add clase-4.hs                                       -> "Che, metete para la foto!"
 git commit -m "Un mensaje expresivo"                     -> Sacamos una foto
 git push origin HEAD                                     -> Subir nuestros cambios al album a Github
