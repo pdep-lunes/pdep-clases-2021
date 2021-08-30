@@ -14,7 +14,7 @@ object poroto {
   
   // Método que **devuelve**
   method ladrido() {
-  	return "Guau Guau"
+    return "Guau Guau"
   }
   
   // Getter
