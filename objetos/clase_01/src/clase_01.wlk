@@ -5,7 +5,7 @@ object poroto {
   
   // Método que **hace**
   method jugar() {
-  	energia = energia - 20 // energia -= 20
+    energia = energia - 20 // energia -= 20
   }
   
   method ladrar() {
@@ -107,11 +107,3 @@ object sally {
     energia = unaEnergia
   }
 }
-
-
-
-
-
-
-
-
