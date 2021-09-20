@@ -1,0 +1,38 @@
+import personajes.*
+import batalla.*
+
+// test hecho en la clase
+
+test "Al batallar, equipo1 contra equipo2, gana el equipo2" {
+	batalla.batallar()
+	assert.equals(batalla.equipo2(), batalla.ganadores())
+}
+
+// tests con describe e initialize
+
+describe "Batalla entre pamela & pocardo vs toro & tulipan" {
+	
+	method initialize() {
+		batalla.atacar()
+	}
+
+	test "Pamela ataca dos veces, su energia aumenta 800, pierde 800 por toro y mitad por tulipan" {	
+		assert.equals(3000, pamela.energia())
+	}
+	
+	test "Pocardo ataca dos veces, su energia aumenta 1000, pierde 600 por toro y mitad por tulipan" {	
+		assert.equals(3000, pocardo.energia())
+	}
+	
+	test "Toro ataca dos veces, consigue dos elementos" {	
+		assert.equals(2, toro.cantidadDeElementos())
+	}
+	
+	test "El equipo ganador es equipo 2" {	
+		assert.equals(batalla.equipo2(), batalla.ganador())
+	}
+	
+	test "El grito ganador es el del equipo 2" {	
+		assert.equals(["Hora de cuidar a las plantas", "¡Siente el poder de la música!"], batalla.gritoGanador())
+	}
+}

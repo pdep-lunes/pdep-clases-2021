@@ -1,0 +1,64 @@
+import personajes.*
+
+// tests hechos en clase
+
+test "Al luchar, Pamela gana 400 de energia" {
+	pamela.luchar(toro)
+	assert.equals(6400, pamela.energia())
+}
+
+test "Al luchar, Toro quita a a su contrincante 200 por cada objeto que tiene" {
+	toro.luchar(pamela)
+	assert.equals(5200, pamela.energia())
+}
+
+test "Al luchar con Toro, el enemigo pierde su último elemento" {
+	toro.luchar(pamela)
+	assert.equals(["algodón", "aguaOxigenada", "cintaDePapel"], pamela.equipamiento())
+}
+
+// tests hechos con describe 
+
+describe "Tests de pamela" {
+
+	test "Pamela luchando mano a mano gana 400 de energia" {	
+		pamela.lucharManoAMano(toro)
+		assert.equals(6400, pamela.energia())
+	}
+}
+
+describe "Tests de Pocardo" {
+
+	test "Pocardo luchando mano a mano gana 500 de energia" {	
+		pocardo.lucharManoAMano(pamela)
+		assert.equals(6100, pocardo.energia())
+	}
+}
+
+describe "Tests de Tulipan" {
+
+	test "Tulipan luchando mano a mano con pamela hace que ella pierda la mitad de su energia" {	
+		const energiaInicialDePamela = pamela.energia()
+		tulipan.lucharManoAMano(pamela)
+		assert.equals(energiaInicialDePamela / 2, pamela.energia())
+	}
+}
+
+describe "Tests de Toro" {
+	
+	method initialize() {
+		toro.lucharManoAMano(pamela)	
+	}
+	
+	test "Toro luchando mano a mano con pamela hace que ella pierda 200 por cada uno de sus elementos" {	
+		assert.equals(5200, pamela.energia())
+	}
+	
+	test "Toro luchando mano a mano con pamela roba su último elemento" {	
+		assert.that(toro.objetos() == #{ "cintaDePapel" })
+	}
+	
+	test "Toro luchando mano a mano con pamela la deja con un elemento menos" {	
+		assert.equals(3, pamela.cantidadDeElementos())
+	}
+}
