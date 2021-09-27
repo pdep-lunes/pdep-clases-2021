@@ -1,0 +1,13 @@
+import estudiantes.*
+
+describe "Estudiantes" {
+  test "Si un estudiante tiene como notas 10 y 8, su promedio es 9" {
+    const unEstudiante = new Estudiante(notas = [10, 8], cursadas = [])
+    
+    assert.equals(9, unEstudiante.promedio())
+  }
+  
+  test "Juan tiene promedio 7.25" {
+    assert.equals(7.25, juan.promedio())
+  }
+}
