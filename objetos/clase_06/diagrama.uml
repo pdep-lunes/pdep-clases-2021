@@ -1,0 +1,61 @@
+@startuml
+abstract class Simulador {
+  nombre
+  edad
+  dinero
+
+  initialize()
+  cobrar()
+  cuantoCobra()
+  abstract puedeSimular()
+}
+
+class Planificador extends Simulador {
+  requisitos
+  tieneFuego
+
+  initialize()
+  puedeSimular()
+  agregarExtra(unExtra)
+}
+
+class Caracterizador extends Simulador {
+  disfraces
+  pseudonimo
+
+  puedeSimular()
+}
+
+class Tecnico extends Simulador {
+  equipamientoAdquirido
+  equipamientoPendiente
+
+  cuantoCobra()
+  puedeSimular()
+}
+
+class Investigador extends Simulador {
+  cuantoCobra()
+  puedeSimular()
+}
+
+class Extra {
+  nombre
+
+  puedeSimular()
+}
+
+interface Integrante {
+  puedeSimular()
+}
+
+class Cliente {
+  darTrabajoA(unEquipo)
+}
+
+Integrante <.l. Cliente
+
+Integrante <|.. Simulador
+Integrante <|.. Extra
+Extra "*" <-- Planificador : extras
+@enduml
