@@ -7,7 +7,7 @@ abstract class Simulador {
   initialize()
   cobrar()
   cuantoCobra()
-  abstract puedeSimular()
+  {abstract} puedeSimular()
 }
 
 class Planificador extends Simulador {
