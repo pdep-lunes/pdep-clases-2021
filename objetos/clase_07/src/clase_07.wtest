@@ -1,0 +1,10 @@
+import rick.*
+import familiar.*
+
+
+test "Si Rick intenta irse de aventuras con jerry, no puede" {
+  const unRick = new Rick(demencia = 100, acompaniante = jerry)
+  
+//  assert.throwsExceptionWithType(new NoPuedoIrDeAventurasException(), { unRick.irseDeAventuras() })
+  assert.throwsExceptionWithMessage("Soy muy tonto y no me da para ir de aventuras!", { unRick.irseDeAventuras() })
+}
